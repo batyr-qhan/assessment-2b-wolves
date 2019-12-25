@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 const partySchema = new mongoose.Schema({
-  title: String,
-  content: String,
-  createdAt: String,
+  name: String,
+  location: String,
+  date: String,
+  author: String,
 });
 
 // entrySchema.statics.mostRecent = async function() {
@@ -13,4 +14,4 @@ const partySchema = new mongoose.Schema({
 //     .exec();
 // };
 
-module.exports = mongoose.model('Post', partySchema);
+module.exports = mongoose.model('Party', partySchema);

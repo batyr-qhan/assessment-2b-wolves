@@ -1,62 +1,75 @@
-/* eslint-disable space-before-function-paren */
-/* eslint-disable func-names */
 const express = require('express');
 
 const router = express.Router();
 const Party = require('../models/partySchema');
 
-// const posts = Post.find({});
-//   console.log(posts);
+console.log('started entries');
 
-// entries home page
+// entries
 router.get('/', async (req, res, next) => {
-  const posts = await Post.find({});
-  console.log(posts);
-
-  res.render('entries', { posts });
+  const { user } = req.session;
+  const parties = await Party.find();
+  // console.log(entries);
+  res.render('parties/index', { parties, user });
 });
 
-// принимаем форму нового поста
-
-router.post('/', (req, res, next) => {
-  const newPost = new Post({
-    title: req.body.title,
-    content: req.body.content,
+router.post('/', async (req, res, next) => {
+  const newParty = new Party({
+    name: req.body.name,
+    location: req.body.location,
+    date: req.body.date,
+    author: req.body.author,
   });
-  newPost.save();
-  res.redirect('/entries');
+  newParty.save();
+  res.redirect(`/parties/${newParty.id}`);
 });
 
 // new entries
-
 router.get('/new', (req, res, next) => {
-  res.render('new');
+  const { user } = req.session;
+  res.render('parties/new', { user });
 });
 
-// показывем конкретный пост
+// detail entry
+router
+  .route('/:id')
+  .get(async (req, res, next) => {
+    const { user } = req.session;
+    const party = await Party.findById(req.params.id);
+    res.render('parties/show', { party, user });
+  })
+  .put(async (req, res, next) => {
+    // const { id } = req.params;
+    // const { name } = req.body;
+    // const { location } = req.body;
+    // const { date } = req.body;
 
-router.get('/:id', async (req, res, next) => {
-  const post = await Post.findById(req.params.id);
-  res.render('show', { post });
-});
+    // await Party.updateOne({ _id: id }, { name, location, date });
 
-// редактируем
+    // const party = await Party.findById(req.params.id);
+
+    const party = await Party.findById(req.params.id);
+
+    party.name = req.body.name;
+    party.location = req.body.location;
+    await party.save();
+
+    res.redirect(`/entries/${party.id}`);
+
+    // party.title = req.body.title;
+    // party.body = req.body.body;
+    // await party.save();
+
+    res.redirect(`/parties/${party.id}`);
+  })
+  .delete(async (req, res, next) => {
+    await Party.deleteOne({ _id: req.params.id });
+    res.redirect('/');
+  });
 
 router.get('/:id/edit', async (req, res, next) => {
-  const post = await Post.findById(req.params.id);
-  res.render('edit', { post });
+  const { user } = req.session;
+  const party = await Party.findById(req.params.id);
+  res.render('parties/edit', { party, user });
 });
-
-// хз почему но этот роут перехватывет кнопку delete. В общем кнопка делет работает сама собой.
-
-router.post('/:id', async (req, res, next) => {
-  const post = await Post.findById(req.params.id);
-
-  post.title = req.body.title;
-  post.content = req.body.content;
-  await post.save();
-
-  res.redirect(`/entries/${post.id}`);
-});
-
 module.exports = router;

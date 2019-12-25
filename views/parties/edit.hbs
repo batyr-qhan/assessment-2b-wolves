@@ -1,0 +1,29 @@
+<h2>Edit the party</h2>
+
+{{!-- {{#if errors}}
+    <span>Something went wrong:</span>
+    <ul class="error-list pad-b-2">
+        {{#each errors as |error|}}
+            <li class="error-item">{{error}}</li>
+        {{/each}}
+    </ul>
+{{/if}} --}}
+
+<form method="post" action="/entries/{{party.id}}">
+  {{!-- < type="hidden" name="_method" value="put"> --}}
+
+  <label for="name-input" class="block mar-b-1">Name:</label>
+  <input id="name-input" name="name" type="text" value="{{party.name}}"
+    class="block w-100 no-outline no-border pad-1 mar-b-2">
+
+  <label for="body-textarea" class="block mar-b-1">Location:</label>
+  <input id="body-textarea" name="location" class="block w-100 no-outline no-border pad-1 mar-b-2"
+    value="{{party.location}}">
+
+  <label for="body-textarea" class="block mar-b-1">Date:</label>
+  <input id="body-textarea" name="date" class="block w-100 no-outline no-border pad-1 mar-b-2"
+    value="{{party.date}}">
+
+  <input type="submit" value="Update" tabindex="3"
+    class="block button w-100 mar-t-4 mar-b-3 pad-2 round-1 text-c center no-border no-outline">
+</form>

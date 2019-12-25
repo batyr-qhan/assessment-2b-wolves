@@ -1,0 +1,15 @@
+{{!-- <a href="/entries/new" class="block button w-100 mar-t-2 mar-b-3 pad-2 round-1 text-c center">Write about
+  Broccoli</a> --}}
+<div class="partyList">
+  <main role="main" class="main">
+    <ul class="entries-list no-bullets no-padding">
+      {{#each parties}}
+      <li class="entry-item pad-b-4">
+        <a href="/parties/{{id}}" class="entry-title font-2 pad-b-1-4 c-white">{{this.name}}</a>
+        <span class="entry-date block font-3-4 c-lt-gray">{{this.date}}</span>
+        <p class="entry-stub">{{this.location}}</p>
+      </li>
+      {{/each}}
+    </ul>
+  </main>
+</div>

@@ -22,7 +22,7 @@
 
 .theTitle {
   margin-top: 70px;
-  margin-left: 90px;
+  margin-left: 100px;
   color: black;
 }
 
@@ -45,4 +45,13 @@
 
 .warnMsg {
   margin-left: 100px;
+}
+
+.showParty {
+  margin-left: 100px;
+}
+
+.partyList {
+  margin-left: 100px;
+  margin-top: 50px;
 }

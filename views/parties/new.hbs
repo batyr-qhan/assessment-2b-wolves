@@ -1,0 +1,18 @@
+<form method="post" action="/parties" class="registerForm">
+  <label for="name-input" class="block mar-b-1">Name:</label>
+  <input id="name-input" name="name" type="text"
+    class="block w-100 no-outline no-border pad-1 mar-b-2" required>
+
+  <label for="location-input" class="block mar-b-1">Location:</label>
+  <input id="location-input" name="location" type="text"
+    class="block w-100 no-outline no-border pad-1 mar-b-2" required>
+
+  <label for="date-input" class="block mar-b-1">Starts At:</label>
+  <input id="date-input" name="date" type="text" class="block w-100 no-outline no-border pad-1 mar-b-2">
+
+  {{!-- <label for="date-input" class="block mar-b-1"></label> --}}
+  <input id="date-input" value="{{user.username}}"  name="author" type="hidden" class="block w-100 no-outline no-border pad-1 mar-b-2">
+
+  <input type="submit" value="Save a party" tabindex="3"
+    class="block button w-100 mar-t-4 mar-b-3 pad-2 round-1 text-c center no-border no-outline">
+</form>

@@ -9,8 +9,9 @@ const saltRounds = 10;
 
 /* GET home page. */
 router.get('/', (req, res) => {
-  const { user } = req.session;
-  res.render('index', { user });
+  // const { user } = req.session;
+  // res.render('index', { user });
+  res.redirect('/parties');
 });
 
 router
@@ -63,7 +64,8 @@ router
       req.session.user = user;
       res.redirect('/');
     } else {
-      const message = 'You are not authorized, please check your username or password!';
+      const message =
+        'You are not authorized, please check your username or password!';
       res.redirect(`/login?message=${message}`);
     }
   });

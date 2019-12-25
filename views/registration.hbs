@@ -1,0 +1,43 @@
+{{#if message}}
+<p class="warnMsg" style="color: red;">{{this.message}}</p>
+{{/if}}
+
+<form class="registerForm" method="post" action="/registration">
+  <label for="username-input" class="block mar-b-1">Username:</label>
+  <input id="username-input" name="username" type="text"
+    class="block w-100 no-outline no-border pad-1 mar-b-2" required>
+
+  <label for="email-input" class="block mar-b-1">Email:</label>
+  <input id="email-input" name="email" type="text" class="block w-100 no-outline no-border pad-1 mar-b-2"
+    required>
+
+  <label for="password-input" class="block mar-b-1">Password:</label>
+  <input id="password-input" name="password" type="text"
+    class="block w-100 no-outline no-border pad-1 mar-b-2" required>
+
+  <input type="submit" value="Register" tabindex="3"
+    class="block button w-100 mar-t-4 mar-b-3 pad-2 round-1 text-c center no-border no-outline">
+</form>
+
+
+{{!-- <div class="container row">
+  <div class="jumbotron col-sm-4 pull-center">
+    <form action="/registration" method="post">
+      <div>
+        <label>Username:</label>
+        <input type="text" name="username" />
+      </div>
+      <div>
+        <label>Email:</label>
+        <input type="text" name="email" />
+      </div>
+      <div>
+        <label>Password:</label>
+        <input type="password" name="password" />
+      </div>
+      <div>
+        <input class="btn btn-primary" type="submit" value="Sign Up" />
+      </div>
+    </form>
+  </div>
+</div> --}}

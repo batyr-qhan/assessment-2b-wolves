@@ -1,0 +1,11 @@
+<main>
+  <ul class="entries">
+    {{#each posts}}
+    <li class="theLi">
+      <a href="/entries/{{id}}">{{this.title}}</a>
+      <span>{{this.content}}</span>
+      {{!-- <p class="entry-stub">{{body}}</p> --}}
+    </li>
+    {{/each}}
+  </ul>
+</main>

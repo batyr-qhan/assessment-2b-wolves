@@ -1,0 +1,48 @@
+/* .navBar {
+  display: flex;
+  flex-direction: row;
+} */
+
+.mainbody {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.homeAndEntries {
+  margin-top: 70px;
+  margin-right: 90px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 250px;
+  list-style-type: none;
+}
+
+.theTitle {
+  margin-top: 70px;
+  margin-left: 90px;
+  color: black;
+}
+
+.newPage,
+.newForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.theLi {
+  display: flex;
+  flex-direction: column;
+}
+
+.registerForm {
+  margin-top: 50px;
+  margin-left: 100px;
+}
+
+.warnMsg {
+  margin-left: 100px;
+}

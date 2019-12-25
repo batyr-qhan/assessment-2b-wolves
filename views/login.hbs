@@ -1,0 +1,16 @@
+{{#if message}}
+<p class="warnMsg" style="color: red;">{{this.message}}</p>
+{{/if}}
+
+<form method="post" action="/login" class="registerForm">
+  <label for="username-input" class="block mar-b-1">Username:</label>
+  <input id="username-input" name="username" type="text"
+    class="block w-100 no-outline no-border pad-1 mar-b-2">
+
+  <label for="password-input" class="block mar-b-1">Password:</label>
+  <input id="password-input" name="password" type="text"
+    class="block w-100 no-outline no-border pad-1 mar-b-2">
+
+  <input type="submit" value="Log In" tabindex="3"
+    class="block button w-100 mar-t-4 mar-b-3 pad-2 round-1 text-c center no-border no-outline">
+</form>

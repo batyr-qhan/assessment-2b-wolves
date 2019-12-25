@@ -1,0 +1,22 @@
+<div class="newPage">
+  <h1>Just write a new post</h1>
+
+  {{!-- {{#if errors}}
+    <span>Something went wrong:</span>
+    <ul class="error-list pad-b-2">
+        {{#each errors as |error|}}
+            <li class="error-item">{{error}}</li>
+        {{/each}}
+    </ul>
+{{/if}} --}}
+
+  <form method="post" action="/entries" class="newForm">
+    <label for="title-input">Title:</label>
+    <input id="title-input" name="title" type="text">
+
+    <label for="title-input">Content:</label>
+    <textarea id="title-input" name="content" type="text"></textarea>
+
+    <input type="submit" value="Publish">
+  </form>
+</div>
